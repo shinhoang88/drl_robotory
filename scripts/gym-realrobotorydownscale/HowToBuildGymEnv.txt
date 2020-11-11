@@ -1,0 +1,71 @@
+# *******************************************************************************************
+# Author	: Phi Tien Hoang
+# Email		: phitien@skku.edu
+# Organization	: Robotics Innovation Lab, Sungkyunkwan Univ
+# Date		: 2020/08/24
+# *******************************************************************************************
+1. Create a new repo call gym-realrobotorydownscale, has the following files:
+
+	gym-realrobotorydownscale/
+		README.md
+		setup.py
+		gym_realrobotorydownscale/
+			__init__.py
+			envs/
+				__init__.py
+				realrobotorydownscale_env.py
+
+2. File contents:
+a) gym-realrobotorydownscale/setup.py
+# *******************************************************************************************
+import setuptools
+from pathlib import Path
+
+
+setuptools.setup(
+    name='gym_realrobotorydownscale',
+    author="Phi Tien Hoang",
+    author_email="phitien@skku.edu",
+    version='0.0.1',
+    description="A OpenAI Gym Env for Robotory downscale manipulator",
+    # long_description=Path("README.md").read_text(),
+    # long_description_content_type="text/markdown",
+    # url="https://github.com/shinhoang88/gym-robotorydownscale",
+    packages=setuptools.find_packages(include="gym_realrobotorydownscale*"),
+    install_requires=['gym', 'pybullet', 'numpy']  # And any other dependencies foo needs
+)
+# *******************************************************************************************
+
+b) gym-realrobotorydownscale/gym_realrobotorydownscale/__init__.py
+# *******************************************************************************************
+from gym.envs.registration import register
+
+register(
+    id='realrobotorydownscale-v0',
+    entry_point='gym_realrobotorydownscale.envs:RealRobotorydownscaleEnv',
+)
+# *******************************************************************************************
+
+c) gym-realrobotorydownscale/gym_realrobotorydownscale/envs/__init__.py
+# *******************************************************************************************
+from gym_realrobotorydownscale.envs.realrobotorydownscale_env import RealRobotorydownscaleEnv
+# *******************************************************************************************
+
+d) gym-realrobotorydownscale/gym_realrobotorydownscale/envs/realrobotorydownscale_env.py
+# *******************************************************************************************
+class RealRobotorydownscaleEnv(gym.Env):
+    metadata = {'render.modes': ['human']}
+
+    # Initialize the environment
+    def __init__(self):
+    ...
+# *******************************************************************************************
+
+3) Install the environment package:
+# *******************************************************************************************
+cd catkin_ws/src/drl_robotory/scripts/gym-realrobotorydownscale
+pip3 install -e .
+(If needed:
+/home/robotory/anaconda3/bin/python3 -m pip install --upgrade pip)
+# *******************************************************************************************
+

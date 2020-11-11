@@ -1,0 +1,9 @@
+setup.py
+gym_realrobotorydownscale/__init__.py
+gym_realrobotorydownscale.egg-info/PKG-INFO
+gym_realrobotorydownscale.egg-info/SOURCES.txt
+gym_realrobotorydownscale.egg-info/dependency_links.txt
+gym_realrobotorydownscale.egg-info/requires.txt
+gym_realrobotorydownscale.egg-info/top_level.txt
+gym_realrobotorydownscale/envs/__init__.py
+gym_realrobotorydownscale/envs/realrobotorydownscale_env.py
